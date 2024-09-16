@@ -1,0 +1,17 @@
+html {
+    /* color-scheme: dark; */
+    /* margin-left: calc(100vw - 100%); */
+    /* margin-right: 0; */
+    width: 100%;
+    height: 100%;
+  }
+
+body {
+    /* --at-apply: "font-sans m-auto p-5 max-w-65ch text-(left neutral-300) bg-neutral-900 break-words leading-6 antialiased"; */
+    --at-apply: "font-sans text-gray-700 dark:text-gray-200";
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    word-wrap: break-word;
+    width: 100%;
+    height: 100%;
+  }
