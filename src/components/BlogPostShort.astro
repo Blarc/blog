@@ -1,0 +1,17 @@
+---
+const { url, title, pubDate } = Astro.props;
+---
+<a class="block flex flex-col sm:flex-row justify-between items-start sm:items-center font-normal no-underline p-4 hover:scale-105 ease-out transition-transform p-4" href={url}>
+    <div class="title text-normal leading-1.2em mb-2 sm:mb-0">
+        {title}
+    </div>
+    <div class="flex opacity-50 text-sm items-center">
+        <div class="mr-2">
+            {new Date(pubDate).toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "short",
+                day: "numeric"
+            })}
+        </div>
+    </div>
+</a>
