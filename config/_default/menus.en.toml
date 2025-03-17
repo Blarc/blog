@@ -1,0 +1,30 @@
+[[main]]
+name = "Articles"
+pageRef = "articles"
+weight = 10
+
+[[main]]
+name = "Projects"
+pageRef = "projects"
+weight = 20
+
+[[main]]
+name = "About"
+pageRef = "about/bio"
+weight = 30
+
+[[main]]
+identifier = "RSS"
+pre = "rss-square"
+url = "/index.xml"
+weight = 100
+
+[[footer]]
+name = "Tags"
+pageRef = "tags"
+weight = 10
+
+[[footer]]
+name = "Categories"
+pageRef = "categories"
+weight = 20
