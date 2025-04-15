@@ -1,0 +1,2 @@
+{{- $file := .Get "file" }}
+{{ with $file }}{{ readFile . | safeHTML }}{{ end }}

@@ -1,0 +1,3 @@
+{{- $file := .Get "file" }}
+{{- $rel := .Page.RelPermalink }}
+{{- with $file }}{{ readFile (urls.JoinPath "content" $rel . ) | safeHTML }}{{ end }}

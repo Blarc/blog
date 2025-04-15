@@ -1,3 +1,20 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://blarc.my.id'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = "Blarc's Blog"
+theme = 'blowfish'
+
+enableRobotsTXT = true
+
+enableEmoji = true
+
+[params]
+name = "Blarc's blog"
+subtitle = "A personal blog about hobbies and tinkering"
+description = "A blog about techonology and other hobbies. Mostly Kubernetes and motorcycle related"
+show_reading_time = true
+
+[imaging]
+bgColor = '#ffffff'
+quality = 85
+resampleFilter = 'Lanczos'
+
