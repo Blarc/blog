@@ -1,4 +1,4 @@
-baseURL = 'https://blarc.my.id'
+baseURL = 'https://blog.blarc.my.id'
 languageCode = 'en-us'
 title = "Blarc's Blog"
 theme = 'blowfish'
@@ -10,7 +10,7 @@ enableEmoji = true
 [params]
 name = "Blarc's blog"
 subtitle = "A personal blog about hobbies and tinkering"
-description = "A blog about techonology and other hobbies. Mostly Kubernetes and motorcycle related"
+description = "A blog about techonology and other hobbies. Mostly Kubernetes and DevOps related"
 show_reading_time = true
 
 [imaging]

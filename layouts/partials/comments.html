@@ -1,0 +1,33 @@
+<script>
+    var remark_config = {
+        host: 'https://remark42.stonegarden.dev',
+        site_id: 'stonegarden.dev',
+        theme: getTargetAppearance(),
+        components: ['embed', 'last-comments'],
+    }
+</script>
+<script>
+    function changeRemark43Theme() {
+        window.REMARK42.changeTheme(getTargetAppearance())
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const switcher = document.getElementById("appearance-switcher");
+        if (switcher) {
+            switcher.addEventListener("click", changeRemark43Theme);
+        }
+        const switcherMobile = document.getElementById("appearance-switcher-mobile");
+        if (switcherMobile) {
+            switcherMobile.addEventListener("click", changeRemark43Theme);
+        }
+    });
+</script>
+<script>
+!function(e,n) {
+    for(var o=0;o<e.length;o++){
+        var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)
+    }
+}
+(remark_config.components||["embed"],document);
+</script>
+<div id="remark42"></div>

@@ -1,0 +1,2 @@
+{{- $url := urls.Parse (.Destination) -}}
+{{ partial "image.html" (dict "page" .Page "url" $url "title" .Title "alt" .Text) }}

@@ -1,6 +1,6 @@
 ---
 title: "Bio"
-date: 2025-29-03T10:34:00+01:00
+date: 2025-03-29T10:34:00+01:00
 
 layout: profile
 

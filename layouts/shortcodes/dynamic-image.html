@@ -1,0 +1,51 @@
+{{- $dark := urls.Parse (.Get "dark") }}
+{{- $light := urls.Parse (.Get "light") }}
+{{- $title := .Get "title" }}
+{{- $alt := .Get "alt" }}
+{{- $noResize := .Get "noResize" | default false }}
+
+{{- $id := .Get "id" | default (print $dark.String $light.String) }}
+{{- $darkId := print $id "-dark" }}
+{{- $lightId := print $id "-light" }}
+
+{{ partial "image.html" (dict "page" .Page "url" $dark "id" $darkId "title" $title "alt" $alt "dynamic" true "noResize" $noResize) }}
+{{ partial "image.html" (dict "page" .Page "url" $light "id" $lightId "title" $title "alt" $alt "dynamic" true "noResize" $noResize) }}
+
+<script>
+    //{{/* Use `md5` to render the id to a legal function name and chain it with `safeJS` to remove quotation marks */}}
+    function change{{ $id | md5 | safeJS }}(){
+        document.getElementById(`{{ $id }}-light`).hidden = getTargetAppearance() !== "light"
+        document.getElementById(`{{ $id }}-dark`).hidden = getTargetAppearance() === "light"
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        // Change when theme is changed
+        const switcher{{ $darkId | md5 | safeJS }}Theme = document.getElementById("appearance-switcher");
+        if (switcher{{ $darkId | md5 | safeJS }}Theme) {
+            switcher{{ $darkId | md5 | safeJS }}Theme.addEventListener("click", change{{ $id | md5 | safeJS }})
+        }
+        const switcherMobile{{ $darkId | md5 | safeJS }}Theme = document.getElementById("appearance-switcher-mobile");
+        if (switcherMobile{{ $darkId | md5 | safeJS }}Theme) {
+            switcherMobile{{ $darkId | md5 | safeJS }}Theme.addEventListener("click", change{{ $id | md5 | safeJS }})
+        }
+
+        // Change individual images
+        const switcher{{ $darkId | md5 | safeJS }}DarkButton = document.getElementById("{{ $id }}-dark-button");
+        if (switcher{{ $darkId | md5 | safeJS }}DarkButton) {
+            switcher{{ $darkId | md5 | safeJS }}DarkButton.addEventListener("click", () => {
+                document.getElementById(`{{ $id }}-light`).hidden = false
+                document.getElementById(`{{ $id }}-dark`).hidden = true
+            })
+        }
+        const switcher{{ $darkId | md5 | safeJS }}LightButton = document.getElementById("{{ $id }}-light-button");
+        if (switcher{{ $darkId | md5 | safeJS }}LightButton) {
+            switcher{{ $darkId | md5 | safeJS }}LightButton.addEventListener("click", () => {
+                document.getElementById(`{{ $id }}-dark`).hidden = false
+                document.getElementById(`{{ $id }}-light`).hidden = true
+            })
+        }
+    });
+
+    // Invoke the change-function to hide the unwanted image
+    change{{ $id | md5 | safeJS }}()
+</script>
