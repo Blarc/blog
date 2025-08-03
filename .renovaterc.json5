@@ -1,0 +1,25 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:recommended"
+  ],
+  dependencyDashboard: true,
+  dependencyDashboardTitle: "Renovate Dashboard 🤖",
+  packageRules: [
+    {
+      description: "Automerge non-major updates",
+      matchUpdateTypes: ["minor", "patch"],
+      automerge: true
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.github/workflows/.+\\.ya?ml$"],
+      "matchStrings": [
+        "base-image: (?<depName>[^:]+):(?<currentValue>\\S+)"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ]
+}
