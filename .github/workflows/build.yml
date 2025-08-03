@@ -51,6 +51,7 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
       # Push the image to GHCR (Image Registry)
       - name: Push To GHCR
+        if: github.event_name != 'pull_request'
         uses: redhat-actions/push-to-registry@v2
         id: push
         with:
@@ -63,6 +64,7 @@ jobs:
             --disable-content-trust
 
       - name: Echo outputs
+        if: github.event_name != 'pull_request'
         run: |
           echo "${{ toJSON(steps.push.outputs) }}"
 
