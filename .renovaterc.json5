@@ -5,6 +5,7 @@
   ],
   dependencyDashboard: true,
   dependencyDashboardTitle: "Renovate Dashboard 🤖",
+  platformAutomerge: false,
   packageRules: [
     {
       description: "Automerge non-major updates",
