@@ -38,7 +38,7 @@ jobs:
           base-image: docker.io/joseluisq/static-web-server:2.40.1-alpine
           image: blog
           tags: latest ${{ github.sha }}
-          entrypoint: "/entrypoint.sh"
+          entrypoint: "/usr/local/bin/entrypoint.sh"
           content: public
           workdir: /public
           oci: true
