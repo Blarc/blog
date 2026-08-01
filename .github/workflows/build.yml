@@ -35,7 +35,7 @@ jobs:
         id: build_image
         uses: redhat-actions/buildah-build@v3
         with:
-          base-image: docker.io/joseluisq/static-web-server:2.42.0-alpine
+          base-image: docker.io/joseluisq/static-web-server:2.44.0-alpine
           image: blog
           tags: latest ${{ github.sha }}
           entrypoint: "/usr/local/bin/entrypoint.sh"
